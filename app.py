@@ -78,6 +78,18 @@ app.layout=dbc.Container([
      ],justify="around")
 ], fluid=True)
 
+def getSizeOfNestedList(listOfElem):
+    ''' Get number of elements in a nested list'''
+    count = 0
+    # Iterate over the list
+    for elem in listOfElem:
+        # Check if type of element is list
+        if type(elem) == list:
+            # Again call this function to get the size of this element
+            count += getSizeOfNestedList(elem)
+        else:
+            count += 1
+    return count
 # Callback section: connecting the components
 # ************************************************************************
 #Interactions
@@ -463,8 +475,17 @@ def display_maps(clickData,value,value1,bar_click,income_click,income_selected,b
                                      color_discrete_map=colors
                                      )
                 fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+                fig1.update_traces(showlegend=False)
                 fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-                fig_map.add_trace(fig1.data[0])
+                # fig_map.add_trace(fig1.data[0])
+                count = getSizeOfNestedList(fig1["data"])
+                if count > 0 :
+                    i=0
+                    while i!=count:
+                        fig_map.add_trace(fig1.data[i])
+                        i=i+1
+                else:
+                    fig_map.add_trace(fig1.data[0])
 
         else:
             df_scat = df_sun.query('country == @label')
@@ -477,8 +498,17 @@ def display_maps(clickData,value,value1,bar_click,income_click,income_selected,b
                                  color_discrete_map=colors
                                  )
             fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+            fig1.update_traces(showlegend=False)
             fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-            fig_map.add_trace(fig1.data[0])
+            # fig_map.add_trace(fig1.data[0])
+            count = getSizeOfNestedList(fig1["data"])
+            if count > 0 :
+                i=0
+                while i!=count:
+                    fig_map.add_trace(fig1.data[i])
+                    i=i+1
+            else:
+                fig_map.add_trace(fig1.data[0])
 
     elif value1:
         values =[]
@@ -494,8 +524,17 @@ def display_maps(clickData,value,value1,bar_click,income_click,income_selected,b
                              color_discrete_map=colors
                              )
         fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+        fig1.update_traces(showlegend=False)
         fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-        fig_map.add_trace(fig1.data[0])
+        # fig_map.add_trace(fig1.data[0])
+        count = getSizeOfNestedList(fig1["data"])
+        if count > 0 :
+            i=0
+            while i!=count:
+                fig_map.add_trace(fig1.data[i])
+                i=i+1
+        else:
+            fig_map.add_trace(fig1.data[0])
     elif value:
         values =[]
         for i in value["points"]:
@@ -510,8 +549,17 @@ def display_maps(clickData,value,value1,bar_click,income_click,income_selected,b
                              color_discrete_map=colors
                              )
         fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+        fig1.update_traces(showlegend=False)
         fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-        fig_map.add_trace(fig1.data[0])
+        # fig_map.add_trace(fig1.data[0])
+        count = getSizeOfNestedList(fig1["data"])
+        if count > 0 :
+            i=0
+            while i!=count:
+                fig_map.add_trace(fig1.data[i])
+                i=i+1
+        else:
+            fig_map.add_trace(fig1.data[0])
     elif bar_click:
         bar_vac=bar_click["points"][0]["label"]
         df_sun_vacc=df_tot.query('vaccines == @bar_vac')
@@ -524,8 +572,17 @@ def display_maps(clickData,value,value1,bar_click,income_click,income_selected,b
                              color_discrete_map=colors
                              )
         fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+        fig1.update_traces(showlegend=False)
         fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-        fig_map.add_trace(fig1.data[0])
+        # fig_map.add_trace(fig1.data[0])
+        count = getSizeOfNestedList(fig1["data"])
+        if count > 0 :
+            i=0
+            while i!=count:
+                fig_map.add_trace(fig1.data[i])
+                i=i+1
+        else:
+            fig_map.add_trace(fig1.data[0])
     elif bar_selected:
         values =[]
         for i in bar_selected["points"]:
@@ -540,8 +597,17 @@ def display_maps(clickData,value,value1,bar_click,income_click,income_selected,b
                              color_discrete_map=colors
                              )
         fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+        fig1.update_traces(showlegend=False)
         fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-        fig_map.add_trace(fig1.data[0])
+        # fig_map.add_trace(fig1.data[0])
+        count = getSizeOfNestedList(fig1["data"])
+        if count > 0 :
+            i=0
+            while i!=count:
+                fig_map.add_trace(fig1.data[i])
+                i=i+1
+        else:
+            fig_map.add_trace(fig1.data[0])
     elif income_selected:
         values =[]
         for i in income_selected["points"]:
@@ -555,8 +621,16 @@ def display_maps(clickData,value,value1,bar_click,income_click,income_selected,b
                              color_discrete_map=colors
                              )
         fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+        fig1.update_traces(showlegend=False)
         fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-        fig_map.add_trace(fig1.data[0])
+        count = getSizeOfNestedList(fig1["data"])
+        if count > 0 :
+            i=0
+            while i!=count:
+                fig_map.add_trace(fig1.data[i])
+                i=i+1
+        else:
+            fig_map.add_trace(fig1.data[0])
     elif income_click:
         income_bar=income_click["points"][0]["label"]
         df_income=df_tot.query('IncomeGroup==@income_bar')
@@ -569,8 +643,17 @@ def display_maps(clickData,value,value1,bar_click,income_click,income_selected,b
                              color_discrete_map=colors
                              )
         fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+        fig1.update_traces(showlegend=False)
         fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-        fig_map.add_trace(fig1.data[0])
+        # fig_map.add_trace(fig1.data[0])
+        count = getSizeOfNestedList(fig1["data"])
+        if count > 0 :
+            i=0
+            while i!=count:
+                fig_map.add_trace(fig1.data[i])
+                i=i+1
+        else:
+            fig_map.add_trace(fig1.data[0])
     else:
         fig_map = px.choropleth(df_tot,locations='country',hover_name='country',color='IncomeGroup',color_discrete_map=colors_country,#colors_country,
                                 locationmode = "country names"
@@ -580,17 +663,16 @@ def display_maps(clickData,value,value1,bar_click,income_click,income_selected,b
                             color_discrete_map=colors
                             )
         fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+        fig1.update_traces(showlegend=False)
         fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-        fig_map.add_trace(fig1.data[0])
-        fig_map.add_trace(fig1.data[1])
-        fig_map.add_trace(fig1.data[2])
-        fig_map.add_trace(fig1.data[3])
-        fig_map.add_trace(fig1.data[4])
-        fig_map.add_trace(fig1.data[5])
-        fig_map.add_trace(fig1.data[6])
-        fig_map.add_trace(fig1.data[7])
-        fig_map.add_trace(fig1.data[8])
-        fig_map.add_trace(fig1.data[9])
+        count = getSizeOfNestedList(fig1["data"])
+        if count > 0 :
+            i=0
+            while i!=count:
+                fig_map.add_trace(fig1.data[i])
+                i=i+1
+        else:
+            fig_map.add_trace(fig1.data[0])
     fig_map.update_layout(clickmode='event+select')
     return fig_map
 
