@@ -1,0 +1,207 @@
+country,vaccines,covid_confirmed,population,people_vaccinated
+Albania,Pfizer/BioNTech,126795,2875401,300546
+Andorra,Pfizer/BioNTech,12286,77359,300546
+Anguilla,Oxford/AstraZeneca,25,15105,200546
+Argentina,Sputnik V,2407159,45510835,755212
+Antigua and Barbuda,Oxford/AstraZeneca,22717,33635777,200546
+Australia,Oxford/AstraZeneca,29364,25724425,343702
+Australia,Pfizer/BioNTech,29364,25724425,33702
+Austria,Oxford/AstraZeneca,560972,9045490,448627
+Austria,Moderna,560972,9045490,48627
+Austria,Pfizer/BioNTech,560972,9045490,418627
+Azerbaijan,Oxford/AstraZeneca,271834,10208608,293360
+Azerbaijan,Sputnik V,271834,10208608,793360
+Afghanistan,Oxford/AstraZeneca,56779,39590542,280546
+Bahrain,Oxford/AstraZeneca,149791,1745999,301103
+Bahrain,Pfizer/BioNTech,149791,1745999,401103
+Bahrain,Sputnik V,149791,1745999,1103
+Bahrain,Sinopharm/Beijing,149791,1745999,31103
+Bangladesh,Oxford/AstraZeneca,644439,165935442,200546
+Barbados,Oxford/AstraZeneca,3679,287643,41125
+Belarus,Sputnik V,328290,9446953,200546
+Belgium,Moderna,902964,11628013,532682
+Belgium,Oxford/AstraZeneca,902964,11628013,2682
+Belgium,Pfizer/BioNTech,902964,11628013,53262
+Bermuda,Pfizer/BioNTech,1469,62102,200546
+Bolivia,Sputnik V,275392,11793761,200546
+Brazil,Sinovac,13023189,213708216,2542206
+Brazil,Oxford/AstraZeneca,13023189,213708216,6542206
+Bulgaria,Moderna,356859,6908467,184764
+Bulgaria,Oxford/AstraZeneca,356859,6908467,847
+Bulgaria,Pfizer/BioNTech,356859,6908467,8474
+Cambodia,Sinopharm/Beijing,2824,16894402,24331
+Canada,Pfizer/BioNTech,1014374,37993587,1407961
+Canada,Moderna,1014374,37993587,127961
+Cayman Islands,Pfizer/BioNTech,501,66308,210546
+Chile,Sinovac,1032612,19240888,3252042
+Chile,Pfizer/BioNTech,1032612,19240888,342042
+China,Sinopharm/Beijing,90329,1439323776,203546
+China,Sinopharm/Wuhan,90329,1439323776,220546
+China,Sinovac,90329,1439323776,500546
+Colombia,Pfizer/BioNTech,2456409,51294650,600546
+Costa Rica,Pfizer/BioNTech,216764,5129457,233695
+Croatia,Pfizer/BioNTech,280164,4085926,153085
+Cyprus,Pfizer/BioNTech,48278,1214041,900546
+Czechia,Moderna,48278,1214041,48878
+Czechia,Oxford/AstraZeneca,48278,1214041,43878
+Czechia,Pfizer/BioNTech,48278,1214041,58878
+Denmark,Moderna,233797,5807732,469535
+Denmark,Pfizer/BioNTech,233797,5807732,45535
+Dominican Republic,Oxford/AstraZeneca,254435,10930522,60000
+Ecuador,Pfizer/BioNTech,336777,17846068,35886
+El Salvador,Oxford/AstraZeneca,65491,6511108,200546
+England,Oxford/AstraZeneca,336777,6511108,1733384
+England,Pfizer/BioNTech,336777,6511108,173384
+Estonia,Moderna,109781,1327215,8759
+Estonia,Oxford/AstraZeneca,109781,1327215,859
+Estonia,Pfizer/BioNTech,109781,1327215,18759
+Faeroe Islands,Pfizer/BioNTech,661,49004,200546
+Finland,Moderna,79737,5547278,38476
+Finland,Oxford/AstraZeneca,79737,5547278,284476
+Finland,Pfizer/BioNTech,79737,5547278,3876
+France,Moderna,4833263,65383531,3036605
+France,Oxford/AstraZeneca,4833263,65383531,303605
+France,Pfizer/BioNTech,4833263,65383531,4036605
+Germany,Oxford/AstraZeneca,2903036,83987935,3275769
+Germany,Pfizer/BioNTech,2903036,83987935,475769
+Germany,Moderna,2903036,83987935,42769
+Gibraltar,Pfizer/BioNTech,4275,33683,200546
+Greece,Moderna,277277,10384176,594053
+Greece,Oxford/AstraZeneca,277277,10384176,4053
+Greece,Pfizer/BioNTech,277277,10384176,104053
+Greenland,Pfizer/BioNTech,31,56845,3927
+Guatemala,Sinovac,195680,18166336,2427
+Guernsey,Pfizer/BioNTech,277277,56845,200546
+Guyana,Oxford/AstraZeneca,10606,789440,200546
+Honduras,Moderna,191136,10023942,200546
+Hong Kong,Pfizer/BioNTech,277277,1166336,37000
+Hong Kong,Sinovac,277277,1166336,27050
+Hungary,Moderna,689853,9641634,72677
+Hungary,Oxford/AstraZeneca,689853,9641634,821677
+Hungary,Pfizer/BioNTech,689853,9641634,62167
+Hungary,Sinopharm/Beijing,689853,9641634,5677
+Hungary,Sputnik V,689853,9641634,8677
+Iceland,Moderna,6225,342927,1083
+Iceland,Pfizer/BioNTech,6225,342927,11083
+Iceland,Oxford/AstraZeneca,6225,342927,51083
+India,Covaxin,12686049,1390308750,12256337
+India,Oxford/AstraZeneca,12686049,1390308750,2256337
+Indonesia,Sinovac,1537967,275719622,1776336
+Iran,Sputnik V,1945964,84808441,200546
+Ireland,Moderna,238466,4979653,403550
+Ireland,Oxford/AstraZeneca,238466,4979653,3550
+Ireland,Pfizer/BioNTech,238466,4979653,33550
+Isle of Man,Oxford/AstraZeneca,238466,4979653,14316
+Isle of Man,Pfizer/BioNTech,238466,4979653,1316
+Israel,Moderna,834603,9197590,4759854
+Israel,Pfizer/BioNTech,834603,9197590,47554
+Italy,Moderna,3678944,60394015,3061454
+Italy,Oxford/AstraZeneca,3678944,60394015,301454
+Italy,Pfizer/BioNTech,3678944,60394015,206454
+Japan,Pfizer/BioNTech,485325,126180983,31785
+Jersey,Oxford/AstraZeneca,3678944,60394015,200546
+Jersey,Pfizer/BioNTech,3678944,60394015,10546
+Jordan,Pfizer/BioNTech,639444,10280059,2546
+Jordan,Sinopharm/Beijing,639444,10280059,150546
+Kazakhstan,Sputnik V,256837,18947133,200546
+Kuwait,Pfizer/BioNTech,238549,4318438,200546
+Latvia,Moderna,104224,1870241,47371
+Latvia,Oxford/AstraZeneca,104224,1870241,371
+Latvia,Pfizer/BioNTech,104224,1870241,67371
+Lebanon,Pfizer/BioNTech,480502,6802108,200546
+Liechtenstein,Moderna,2697,38211,10546
+Liechtenstein,Pfizer/BioNTech,2697,38211,200546
+Lithuania,Moderna,220212,2693197,17299
+Lithuania,Oxford/AstraZeneca,220212,2693197,152999
+Lithuania,Pfizer/BioNTech,220212,2693197,142999
+Luxembourg,Moderna,62414,633692,2755
+Luxembourg,Oxford/AstraZeneca,62414,633692,27655
+Luxembourg,Pfizer/BioNTech,62414,633692,17655
+Macao,Sinopharm/Beijing,,,15094
+Malaysia,Sinovac,352029,32680556,25252
+Maldives,Oxford/AstraZeneca,24908,547751,200546
+Malta,Pfizer/BioNTech,29279,442439,52862
+Mexico,Oxford/AstraZeneca,2251705,129961278,1959525
+Mexico,Pfizer/BioNTech,2251705,129961278,195525
+Mexico,Sputnik V,2251705,129961278,959525
+Monaco,Pfizer/BioNTech,2334,39454,200546
+Mongolia,Oxford/AstraZeneca,11651,3318279,200546
+Montenegro,Sputnik V,92740,628127,1531
+Montserrat,Oxford/AstraZeneca,20,4994,200546
+Morocco,Oxford/AstraZeneca,498329,37242552,356670
+Morocco,Sinopharm/Beijing,498329,37242552,35686
+Nepal,Oxford/AstraZeneca,278210,29533439,20546
+Netherlands,Moderna,1307466,17163751,20846
+Netherlands,Oxford/AstraZeneca,1307466,17163751,200546
+Netherlands,Pfizer/BioNTech,1307466,17163751,100546
+New Zealand,Pfizer/BioNTech,2524,5002100,200546
+Northern Ireland,Oxford/AstraZeneca,1307466,17163751,440308
+Northern Ireland,Pfizer/BioNTech,1307466,17163751,54008
+Norway,Moderna,99249,5453462,41186
+Norway,Oxford/AstraZeneca,99249,5453462,3411
+Norway,Pfizer/BioNTech,99249,5453462,34186
+Oman,Oxford/AstraZeneca,164274,5204594,100546
+Oman,Pfizer/BioNTech,164274,5204594,20046
+Pakistan,Oxford/AstraZeneca,696184,224136519,180546
+Pakistan,Sinopharm/Beijing,696184,224136519,20546
+Pakistan,Sputnik V,696184,224136519,17546
+Panama,Pfizer/BioNTech,356556,4366224,200546
+Paraguay,Sputnik V,222663,7199011,200546
+Peru,Sinopharm/Beijing,1590209,33320089,319830
+Philippines,Sinovac,803398,110687179,200546
+Poland,Moderna,2448463,37814999,219526
+Poland,Oxford/AstraZeneca,2448463,37814999,2190
+Poland,Pfizer/BioNTech,2448463,37814999,2190526
+Portugal,Moderna,823494,10174021,603585
+Portugal,Pfizer/BioNTech,823494,10174021,60585
+Qatar,Pfizer/BioNTech,184334,2807805,200546
+Romania,Moderna,977986,19139634,94681
+Romania,Oxford/AstraZeneca,977986,19139634,846781
+Romania,Pfizer/BioNTech,977986,19139634,9481
+Russia,EpiVacCorona,4589540,145982158,440332
+Russia,Sputnik V,4589540,145982158,4140332
+Saint Helena,Oxford/AstraZeneca,4589540,145982158,200546
+San Marino,Sputnik V,4775,33985,275
+Saudi Arabia,Oxford/AstraZeneca,393377,35224649,200546
+Saudi Arabia,Pfizer/BioNTech,393377,35224649,546
+Scotland,Oxford/AstraZeneca,184334,2807805,16361
+Scotland,Pfizer/BioNTech,184334,2807805,1634361
+Senegal,Sinopharm/Beijing,39093,17076626,35299
+Serbia,Oxford/AstraZeneca,621375,8710504,975
+Serbia,Pfizer/BioNTech,621375,8710504,94675
+Serbia,Sinopharm/Beijing,621375,8710504,46375
+Serbia,Sputnik V,621375,8710504,94375
+Seychelles,Oxford/AstraZeneca,4320,98810,55901
+Seychelles,Sinopharm/Beijing,4320,98810,501
+Singapore,Pfizer/BioNTech,60495,5885314,317715
+Slovakia,Pfizer/BioNTech,365400,5461658,321645
+Slovenia,Oxford/AstraZeneca,220425,2079156,14958
+Slovenia,Pfizer/BioNTech,220425,2079156,124958
+South Africa,Johnson&Johnson,1552416,59875953,7047
+South Korea,Oxford/AstraZeneca,106230,51302811,200546
+Spain,Moderna,3311325,46768582,2642034
+Spain,Oxford/AstraZeneca,3311325,46768582,2034
+Spain,Pfizer/BioNTech,3311325,46768582,642034
+Sri Lanka,Oxford/AstraZeneca,93595,21481589,200546
+Sweden,Oxford/AstraZeneca,813191,10147161,2046
+Sweden,Pfizer/BioNTech,813191,10147161,600546
+Switzerland,Moderna,605342,8702740,55521
+Switzerland,Pfizer/BioNTech,605342,8702740,553521
+Thailand,Sinovac,29571,69933377,319
+Turkey,Sinovac,3529601,85028056,6975558
+Turks and Caicos Islands,Pfizer/BioNTech,29571,69933377,200546
+Ukraine,Oxford/AstraZeneca,1769164,43533047,4905
+United Arab Emirates,Oxford/AstraZeneca,472148,9981074,290546
+United Arab Emirates,Pfizer/BioNTech,472148,9981074,2046
+United Arab Emirates,Sinopharm/Beijing,472148,9981074,800546
+United Arab Emirates,Sinopharm/Wuhan,472148,9981074,546
+United Arab Emirates,Sputnik V,472148,9981074,200546
+United Kingdom,Oxford/AstraZeneca,29571,69933377,20481538
+United Kingdom,Pfizer/BioNTech,29571,69933377,21538
+United States,Moderna,31496976,332479117,50997
+United States,Pfizer/BioNTech,31496976,332479117,50732997
+Uruguay,Sinovac,119958,3482896,18357
+Venezuela,Sputnik V,167548,28374458,200546
+Wales,Oxford/AstraZeneca,119958,3482896,9485
+Wales,Pfizer/BioNTech,119958,3482896,933485
+Zimbabwe,Sinopharm/Beijing,36934,15026922,21456
