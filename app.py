@@ -52,8 +52,8 @@ df_income_merge=pd.merge(df_income,df_tot[['country','IncomeGroup','vaccines']],
 app.layout=dbc.Container([
   dbc.Row([
   # dbc.Nav(dbc.NavLink("Code",active=True, href="#"),pills=True,className="btn btn-link"),
-   html.Div([html.A(html.Button("Project Report", id="report-button",style={'background-color': '#555555','color': 'white','margin':'5px'}),href="")]),
-   html.Div([html.A(html.Button("GitHub", id="learn-more-button",style={'background-color': '#555555','color': 'white','margin':'5px'}),href="",)],id="button"),
+   html.Div([html.A(html.Button("Project Report", id="report-button",style={'background-color': '#555555','color': 'white','margin':'5px'}),href="https://github.com/Nirosha-Bugatha/COVID-19-Vaccination-Drive/tree/main/Project%20Report")]),
+   html.Div([html.A(html.Button("GitHub", id="learn-more-button",style={'background-color': '#555555','color': 'white','margin':'5px'}),href="https://github.com/Nirosha-Bugatha/COVID-19-Vaccination-Drive",)],id="button"),
      dbc.Col(html.H1("COVID-19 Vaccination Drive",
                     className='text-center mb-4',style={'font-family':'Helvetica','font-weight': 'bold'}),
             width=12),
@@ -83,8 +83,8 @@ app.layout=dbc.Container([
 #Interactions
 #IncomeGroup bar_chart
 @app.callback(Output("income_group","figure"),
-            [Input("sun_burst_chart", "clickData"),Input('bubble_chart','clickData'),Input('maps','clickData'),Input('bar_origin','clickData')])
-def income_chart(clickData,bubble_click,map_click,bar_click):
+            [Input("sun_burst_chart", "clickData"),Input('bubble_chart','clickData'),Input('maps','clickData'),Input('bar_origin','clickData'),Input('bar_origin','selectedData')])
+def income_chart(clickData,bubble_click,map_click,bar_click,bar_selected):
     if clickData:
         label = clickData["points"][0]["label"] #country and vaccine names
         parent = clickData["points"][0]["parent"]
@@ -120,6 +120,17 @@ def income_chart(clickData,bubble_click,map_click,bar_click):
                                                   color_discrete_map=colors_country,
                                                   text="Number of countries",
                                                   template="simple_white",height=400,width=500)
+    elif bar_selected:
+        values =[]
+        for i in bar_selected["points"]:
+            values.append(i["label"])
+        df_scat=df_income_merge[df_income_merge['vaccines'].isin(values)]
+        df_bar_incom=df_scat.drop_duplicates(subset = ["IncomeGroup"])
+        fig_income=px.bar(df_bar_incom, y="Number of countries", x='IncomeGroup',
+                                                 color="IncomeGroup",
+                                                  color_discrete_map=colors_country,
+                                                  text="Number of countries",
+                                                  template="simple_white",height=400,width=500)
     elif bar_click:
         label = bar_click["points"][0]["label"]
         df_scat = df_income_merge.query('vaccines == @label')
@@ -129,7 +140,6 @@ def income_chart(clickData,bubble_click,map_click,bar_click):
                                                   color_discrete_map=colors_country,
                                                   text="Number of countries",
                                                   template="simple_white",height=400,width=500)
-
     else:
         fig_income=px.bar(df_income, y="Number of countries", x='IncomeGroup',
                                      color="IncomeGroup",
@@ -141,8 +151,9 @@ def income_chart(clickData,bubble_click,map_click,bar_click):
 
 #barchart
 @app.callback(Output("bar_origin", "figure"),
-            [Input("sun_burst_chart", "clickData"),Input('bubble_chart','clickData'),Input('maps','clickData'),Input('income_group','clickData')])
-def bar_chart(clickData,bubble_click,map_click,income_click):
+            [Input("sun_burst_chart", "clickData"),Input('bubble_chart','clickData'),Input('maps','clickData'),
+            Input('income_group','clickData'),Input('income_group','selectedData')])
+def bar_chart(clickData,bubble_click,map_click,income_click,income_selected):
     if clickData:
         label = clickData["points"][0]["label"] #country and vaccine names
         parent = clickData["points"][0]["parent"]
@@ -195,6 +206,19 @@ def bar_chart(clickData,bubble_click,map_click,income_click):
                                                   color_discrete_map=colors,
                                                   text="The country of manufacture",
                                                   template="simple_white",height=400,width=700)
+    elif income_selected:
+        values =[]
+        for i in income_selected["points"]:
+            values.append(i["label"])
+        df_value=df_income_vac[df_income_vac['IncomeGroup'].isin(values)]
+        df_bar_incom=df_value.drop_duplicates(subset = ["vaccines"])
+        fig_bar=px.bar(df_bar_incom, y="vaccines", x='Number of countries used',
+                                             color="vaccines",
+                                             orientation="h",
+                                              hover_name='Number of countries used',
+                                              color_discrete_map=colors,
+                                              text="The country of manufacture",
+                                              template="simple_white",height=400,width=700)
     else:
         fig_bar=px.bar(df_origin, y="vaccines", x='Number of countries used',
                          color="vaccines",
@@ -210,8 +234,9 @@ def bar_chart(clickData,bubble_click,map_click,income_click):
 #Bubble chart
 @app.callback(Output("bubble_chart", "figure"),
               [Input("sun_burst_chart", "clickData"),
-              Input('bar_origin','clickData'),Input('maps','clickData'),Input('maps','selectedData'),Input('income_group','clickData')])
-def bubble(clickData,bar_click,map_click,selectedData,income_click):
+              Input('bar_origin','clickData'),Input('maps','clickData'),Input('maps','selectedData'),Input('income_group','clickData'),
+              Input('income_group','selectedData'),Input('bar_origin','selectedData')])
+def bubble(clickData,bar_click,map_click,selectedData,income_click,income_selected,bar_selected):
     if clickData:
         label = clickData["points"][0]["label"] #country and vaccine names
         parent = clickData["points"][0]["parent"]
@@ -248,6 +273,32 @@ def bubble(clickData,bar_click,map_click,selectedData,income_click):
                             labels=dict(Percentage="Relative Percentage of People Vaccinated",
                             covid_percentage="Relative Percentage of COVID confirmed cases"),
                             template="simple_white",height=450,width=700)
+    elif income_selected:
+        values =[]
+        for i in income_selected["points"]:
+            values.append(i["label"])
+        df_income=df_tot[df_tot['IncomeGroup'].isin(values)]
+        fig_bubble=px.scatter(df_income, x="covid_percentage", y="Percentage",
+                            size="Percentage",
+                    color="vaccines",color_discrete_map=colors,
+                     hover_data=["country","Percentage","covid_percentage","population"],
+                    log_x=False, size_max=60,hover_name="country",
+                    labels=dict(Percentage="Relative Percentage of People Vaccinated",
+                    covid_percentage="Relative Percentage of COVID confirmed cases"),
+                    template="simple_white",height=450,width=700)
+    elif bar_selected:
+        values =[]
+        for i in bar_selected["points"]:
+            values.append(i["label"])
+        df_scat=df_sun[df_sun['vaccines'].isin(values)]
+        fig_bubble=px.scatter(df_scat, x="covid_percentage", y="Percentage",
+                            size="Percentage",
+                    color="vaccines",color_discrete_map=colors,
+                     hover_data=["country","Percentage","covid_percentage","population"],
+                     log_x=False, size_max=60,hover_name="country",
+                    labels=dict(Percentage="Relative Percentage of People Vaccinated",
+                    covid_percentage="Relative Percentage of COVID confirmed cases"),
+                    template="simple_white",height=450,width=700)
     elif map_click:
         map_country=map_click["points"][0]["hovertext"]
         df_map = df_sun.query('country == @map_country')
@@ -297,8 +348,8 @@ def bubble(clickData,bar_click,map_click,selectedData,income_click):
 @app.callback(Output("sun_burst_chart", "figure"),
               [Input("bubble_chart", "clickData"),
               Input('bar_origin','clickData'),
-              Input('maps','clickData'),Input('maps','selectedData'),Input('income_group','clickData')])
-def sunburst(clickData,bar_click,map_click,selectedData,income_click):
+              Input('maps','clickData'),Input('maps','selectedData'),Input('income_group','clickData'),Input('income_group','selectedData'),Input('bar_origin','selectedData')])
+def sunburst(clickData,bar_click,map_click,selectedData,income_click,income_selected,bar_selected):
     if clickData:
         country=clickData["points"][0]["hovertext"]
         df_sun_country=df_sun.query('country == @country')
@@ -323,6 +374,19 @@ def sunburst(clickData,bar_click,map_click,selectedData,income_click):
         color_discrete_map=colors,height=400,width=700)
         fig.update_traces(textinfo='label+value')
         fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+    elif income_selected:
+        values =[]
+        for i in income_selected["points"]:
+            values.append(i["label"])
+        df_income=df_tot[df_tot['IncomeGroup'].isin(values)]
+        fig=px.sunburst(df_income,
+        path=['vaccines','country'],
+         values='people_vaccinated',
+         maxdepth=-1,
+         color='vaccines',
+         color_discrete_map=colors,height=400,width=700)
+        fig.update_traces(textinfo='label+value')
+        fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
     elif map_click:
             map_country=map_click["points"][0]["hovertext"]
             df_sun_country=df_sun.query('country == @map_country')
@@ -337,6 +401,19 @@ def sunburst(clickData,bar_click,map_click,selectedData,income_click):
     elif bar_click:
         bar_vac=bar_click["points"][0]["label"]
         df_sun_vacc=df_sun.query('vaccines == @bar_vac')
+        fig=px.sunburst(df_sun_vacc,
+        path=['vaccines','country'],
+         values='people_vaccinated',
+         maxdepth=-1,
+         color='vaccines',
+         color_discrete_map=colors,height=400,width=700)
+        fig.update_traces(textinfo='label+value')
+        fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+    elif bar_selected:
+        values =[]
+        for i in bar_selected["points"]:
+            values.append(i["label"])
+        df_sun_vacc=df_sun[df_sun['vaccines'].isin(values)]
         fig=px.sunburst(df_sun_vacc,
         path=['vaccines','country'],
          values='people_vaccinated',
@@ -371,8 +448,8 @@ def sunburst(clickData,bar_click,map_click,selectedData,income_click):
 #Maps
 @app.callback(Output("maps", "figure"),
               [Input('sun_burst_chart','clickData'),Input("bubble_chart", "clickData"),Input("bubble_chart", "selectedData"),
-              Input("bar_origin", "clickData"),Input('income_group','clickData')])
-def display_maps(clickData,value,value1,bar_click,income_click):
+              Input("bar_origin", "clickData"),Input('income_group','clickData'),Input('income_group','selectedData'),Input('bar_origin','selectedData')])
+def display_maps(clickData,value,value1,bar_click,income_click,income_selected,bar_selected):
     if clickData:
         label = clickData["points"][0]["label"] #country and vaccine names
         parent = clickData["points"][0]["parent"]
@@ -435,7 +512,6 @@ def display_maps(clickData,value,value1,bar_click,income_click):
         fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
         fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
         fig_map.add_trace(fig1.data[0])
-
     elif bar_click:
         bar_vac=bar_click["points"][0]["label"]
         df_sun_vacc=df_tot.query('vaccines == @bar_vac')
@@ -445,6 +521,37 @@ def display_maps(clickData,value,value1,bar_click,income_click):
                                 )
         fig_map.update_traces(showlegend=False,selector=dict(type='scattergeo'),marker_size=9)
         fig1 =px.scatter_geo(df_map2,locations='country',hover_name='country',color='vaccines',size='Percentage',locationmode = "country names",
+                             color_discrete_map=colors
+                             )
+        fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+        fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+        fig_map.add_trace(fig1.data[0])
+    elif bar_selected:
+        values =[]
+        for i in bar_selected["points"]:
+            values.append(i["label"])
+        df_sun_vacc=df_tot[df_tot['vaccines'].isin(values)]
+        df_map2=df_sun[df_sun['vaccines'].isin(values)]
+        fig_map = px.choropleth(df_sun_vacc,locations='country',hover_name='country',color='IncomeGroup',color_discrete_map=colors_country,
+                                locationmode = "country names"
+                                )
+        fig_map.update_traces(showlegend=False,selector=dict(type='scattergeo'),marker_size=9)
+        fig1 =px.scatter_geo(df_map2,locations='country',hover_name='country',color='vaccines',size='Percentage',locationmode = "country names",
+                             color_discrete_map=colors
+                             )
+        fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
+        fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+        fig_map.add_trace(fig1.data[0])
+    elif income_selected:
+        values =[]
+        for i in income_selected["points"]:
+            values.append(i["label"])
+        df_income=df_tot[df_tot['IncomeGroup'].isin(values)]
+        fig_map = px.choropleth(df_income,locations='country',hover_name='country',color='IncomeGroup',color_discrete_map=colors_country,
+                                locationmode = "country names"
+                                )
+        fig_map.update_traces(showlegend=False,selector=dict(type='scattergeo'),marker_size=9)
+        fig1 =px.scatter_geo(df_income,locations='country',hover_name='country',color='vaccines',size='Percentage',locationmode = "country names",
                              color_discrete_map=colors
                              )
         fig1.update_geos(showcountries=True, countrycolor="RebeccaPurple")
